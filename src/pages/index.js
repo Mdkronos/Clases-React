@@ -1,9 +1,7 @@
 
 import Head from "next/head";
-import Header from "@/components/Clase_5/Header";
-import Main from "@/components/Clase_5/Main";
-import Footer from "@/components/Clase_5/Footer";
-import ThemeContextProvider from "@/context/ThemeContextProvider"
+
+import Contador from "@/components/Clase_5/Contador";
 
 
 
@@ -11,13 +9,11 @@ export default function Home() {
   return (
     <>
       <Head></Head>
-      <ThemeContextProvider>
+      
         <main>
-          <Header />
-          <Main />
-          <Footer />
+          <Contador />
         </main>
-      </ThemeContextProvider>
+      
     </>
   )
 }
