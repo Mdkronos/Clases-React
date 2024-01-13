@@ -1,7 +1,8 @@
 
 import Head from "next/head";
 
-import Contador from "@/components/Clase_5/Contador";
+
+import Shoppingcart from "@/components/Clase_6/Shoppingcart";
 
 
 
@@ -11,7 +12,7 @@ export default function Home() {
       <Head></Head>
       
         <main>
-          <Contador />
+          <Shoppingcart />
         </main>
       
     </>

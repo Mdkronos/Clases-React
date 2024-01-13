@@ -5,7 +5,7 @@ import { initialState } from "./initialState"
 export const reducer = (state, action) => {
     switch (action.type) {
         case TYPES.SUMAR: {
-            return {contador: state.contador + 1}
+            return {contador: state.contador + action.payload}
         }
         case TYPES.RESETEAR: {
             return initialState

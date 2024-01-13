@@ -72,11 +72,14 @@ const Contador = () => {
     
     
     // ("PROGRAMACION CON REDUCER")
-    const sumar = () => dispatch({type: TYPES.SUMAR}) // dispatch tiene un objeto llamado action, y me voy a 
-    // meter en su propiedad type.
+    const sumar = () => dispatch({type: TYPES.SUMAR, payload: 10}) // dispatch tiene un objeto llamado action, y me voy a 
+    // meter en su propiedad type. Segundo parametro, payload es propiedad de action, puedo especificar con 
+    // ella de cuanto en cuanto quiero que varie el contador sin tener que modificar la programacion del 
+    // reducer, programando desde el mismo componente puntual. (forma de despachar datos al reducer)
+    // Se pueden pasar datos, arreglos, objetos, ids. 
     const resetear = () => dispatch({type: TYPES.RESETEAR})
     
-    const restar = () => dispatch({type: TYPES.RESTAR})
+    const restar = () => dispatch({type: TYPES.RESTAR, payload: 10})
 
     return (
         <div style={{
