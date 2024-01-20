@@ -1,10 +1,7 @@
 
 import Head from "next/head";
 
-
-import Shoppingcart from "@/components/Clase_6/Shoppingcart";
-
-
+import BBApp from "@/components/Clase_7/BBApp";
 
 export default function Home() {
   return (
@@ -12,12 +9,12 @@ export default function Home() {
       <Head></Head>
       
         <main>
-          <Shoppingcart />
+          <BBApp /> 
         </main>
       
     </>
   )
-}
+} // quedamos en el minuto 56 de la clase 23
 
 
 
