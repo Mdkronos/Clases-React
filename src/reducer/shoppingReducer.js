@@ -4,6 +4,17 @@ import { shoppingInitialState } from "./shoppingInitialState"
 
 export const shoppingReducer = (state, action) => {
     switch (action.type) {
+        // Quiero pararme en la db y sobreescribir lo que tengo en el arreglo
+        // DB Server hago un apeticion, me da una respuesta, la voy a despachar al reductor,
+        // la despacho via payload, va a llegar al caso que dice en el reductor, el reductor va a
+        // actualizar el State con la data que me traje del servidor.
+        case TYPES.READ_STATE: {
+            return {
+                ...state,
+                products: action.payload.products,
+                cart: action.payload.cart
+            }
+        }
         case TYPES.ADD_TO_CART: {
             // Algoritmo textual para planificar que quiero que haga mi funcion:
             // Inicio:

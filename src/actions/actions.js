@@ -10,6 +10,7 @@ export const TYPES = { // con este objeto globalizo las funciones para utilizarl
     RESTAR: "RESTAR",
 
     // Shopping Cart
+    READ_STATE: "READ_STATE", // Leer el estado del carro, desde la hoja de db.json
     ADD_TO_CART: "ADD_TO_CART", // Si el producto no existe lo agrega, si existe +1.
     REMOVE_ONE_PRODUCTS: "REMOVE_ONE_PRODUCTS", // Si la cantidad es 1 lo elimina, sino -1 cantidad.
     REMOVE_ALL_PRODUCTS: "REMOVE_ALL_PRODUCTS", // Ignora la cantidad y elimina directamente el total.

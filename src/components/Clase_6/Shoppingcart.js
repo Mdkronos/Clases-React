@@ -1,5 +1,6 @@
 
-import { useReducer } from 'react'
+import { useReducer, useEffect } from 'react'
+import axios from 'axios';
 import { TYPES } from '@/actions/actions';
 import { shoppingInitialState } from '@/reducer/shoppingInitialState';
 import { shoppingReducer } from '@/reducer/shoppingReducer';
@@ -13,6 +14,19 @@ const Shoppingcart = () => {
     const {products, cart} = state; // Destructurar del estado las dos porpiedades que me interesan.
     // state es un objeto, me interesa extraer products y cart (son dos arreglos)
 
+    const updateState = async () => {
+        const ENDPOINTS = {
+            products: "https://localhost:5000/products",
+            cart: "https://localhost:5000/cart"
+        }
+        const responseProducts = await axios.get(ENDPOINTS.products); // Obtener los productos de la API.
+        const responseCart = await axios.get(ENDPOINTS.cart); // Obtener el carrito de la API.
+        const productsList = await responseProducts.data; // El arreglo de productos
+        const cartItems = await responseCart.data; // El arreglo de carrito
+
+        dispatch ({ type: TYPES.READ_STATE, payload: { products: productsList, cart: cartItems} })
+    }
+
     const addToCart = (id) => dispatch({ type: TYPES.ADD_TO_CART, payload: id});
 
     const deleteFromCart = (id, all) => { // all = true o all = false
@@ -22,6 +36,11 @@ const Shoppingcart = () => {
             dispatch({ type: TYPES.REMOVE_ONE_PRODUCTS, payload: id})
         }
     };
+
+    useEffect(() => {
+      updateState();
+    }, [])
+    
 
     const clearCart = () => dispatch({ type: TYPES.CLEAR_CART});
 
