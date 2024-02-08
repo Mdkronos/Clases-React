@@ -26,6 +26,10 @@ const Shoppingcart = () => {
 
         dispatch ({ type: TYPES.READ_STATE, payload: { products: productsList, cart: cartItems} })
     }
+    
+    useEffect(() => {
+      updateState();
+    }, [])
 
     const addToCart = (id) => dispatch({ type: TYPES.ADD_TO_CART, payload: id});
 
@@ -37,9 +41,6 @@ const Shoppingcart = () => {
         }
     };
 
-    useEffect(() => {
-      updateState();
-    }, [])
     
 
     const clearCart = () => dispatch({ type: TYPES.CLEAR_CART});
